@@ -6074,6 +6074,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "scx_mysched"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "libbpf-rs",
+ "scx_cargo",
+ "scx_utils",
+]
+
+[[package]]
 name = "scx_p2dq"
 version = "1.1.3"
 dependencies = [

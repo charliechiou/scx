@@ -11,6 +11,7 @@ members = [
     "rust/scx_utils",
     "scheds/rust/scx_beerland",
     "scheds/rust/scx_bpfland",
+    "scheds/rust/scx_mysched",
     "scheds/rust/scx_cake",
     "scheds/rust/scx_chaos",
     "scheds/rust/scx_cosmos",
@@ -31,7 +32,7 @@ members = [
     "tools/scxtop",
     "tools/scx_forge_agent",
     "tools/vmlinux_docify",
-    "tools/xtask",
+    "tools/xtask", "scheds/rust/scx_mysched",
 ]
 resolver = "2"
 
