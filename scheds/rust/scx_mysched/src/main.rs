@@ -5,12 +5,7 @@ use bpf_skel::*;
 
 use libbpf_rs::OpenObject;
 
-use scx_utils::{
-    scx_ops_attach,
-    scx_ops_load,
-    scx_ops_open,
-    try_set_rlimit_infinity,
-};
+use scx_utils::{scx_ops_attach, scx_ops_load, scx_ops_open, try_set_rlimit_infinity};
 
 use std::mem::MaybeUninit;
 use std::thread;
@@ -37,12 +32,7 @@ fn main() -> Result<()> {
      *
      * None 表示不提供額外的 libbpf open options。
      */
-    let mut skel = scx_ops_open!(
-        skel_builder,
-        &mut open_object,
-        mysched_ops,
-        None
-    )?;
+    let mut skel = scx_ops_open!(skel_builder, &mut open_object, mysched_ops, None)?;
 
     /*
      * Load BPF program。
@@ -50,11 +40,7 @@ fn main() -> Result<()> {
      * 這裡會經過 BPF verifier，
      * 並處理 scx 的 compatibility 與 UEI 設定。
      */
-    let mut skel = scx_ops_load!(
-        skel,
-        mysched_ops,
-        uei
-    )?;
+    let mut skel = scx_ops_load!(skel, mysched_ops, uei)?;
 
     /*
      * Attach scheduler。
@@ -63,10 +49,7 @@ fn main() -> Result<()> {
      *   1. skel.attach()
      *   2. mysched_ops.attach_struct_ops()
      */
-    let _struct_ops_link = scx_ops_attach!(
-        skel,
-        mysched_ops
-    )?;
+    let _struct_ops_link = scx_ops_attach!(skel, mysched_ops)?;
 
     println!("mysched is running");
     println!("Press Ctrl+C to stop");
